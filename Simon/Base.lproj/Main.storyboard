@@ -29,11 +29,6 @@
                                 <rect key="frame" x="77" y="232" width="220" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-pp-gRK">
-                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.84775744818652843" green="0.073210958221805247" blue="0.066114959259941528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    </view>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ftb-Nz-u7r">
                                         <rect key="frame" x="120" y="0.0" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -48,6 +43,11 @@
                                         <rect key="frame" x="120" y="120" width="100" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="1" green="0.95014115908874131" blue="0.28879907910753322" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uSE-pp-gRK">
+                                        <rect key="frame" x="8" y="0.0" width="100" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.84775744818652843" green="0.073210958221805247" blue="0.066114959259941528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" red="0.4354153174" green="0.020998407019999998" blue="0.050538436130000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -66,14 +66,31 @@
                                 <state key="normal" title="Start">
                                     <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="onStartButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="kOu-Br-1BS"/>
+                                    <action selector="startButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7dD-YU-d0y"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.43541531735751293" green="0.020998407020035297" blue="0.050538436127575942" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="colorsFrame" destination="bqN-63-HYR" id="ZNJ-c4-1Rk"/>
+                        <outlet property="messageLabel" destination="PAC-L1-VS3" id="OJg-5P-qTE"/>
+                        <outlet property="startButton" destination="Y0n-52-zi8" id="MfH-wY-hay"/>
+                        <outletCollection property="colorDisplays" destination="uSE-pp-gRK" collectionClass="NSMutableArray" id="fuO-lX-5sG"/>
+                        <outletCollection property="colorDisplays" destination="Ftb-Nz-u7r" collectionClass="NSMutableArray" id="3We-bm-UJI"/>
+                        <outletCollection property="colorDisplays" destination="krb-rM-vWl" collectionClass="NSMutableArray" id="M2k-Ot-blf"/>
+                        <outletCollection property="colorDisplays" destination="BgV-am-tkG" collectionClass="NSMutableArray" id="PMh-Qz-OfR"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="YeD-77-XQ5"/>
+                <tapGestureRecognizer id="YeD-77-XQ5">
+                    <connections>
+                        <action selector="onColorTapped:" destination="BYZ-38-t0r" id="lcS-l6-3rN"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
