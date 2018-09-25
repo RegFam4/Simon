@@ -31,7 +31,7 @@ class ViewController: UIViewController {
         if gameOver{
             restart()
             displayPattern()
-            gameOver = false
+            gameOver = true
             startButton.alpha = 0.0
             messageLabel.text = ""
         }
@@ -42,6 +42,22 @@ class ViewController: UIViewController {
             if colorDisplays[number].frame.contains(sender.location(in: colorsFrame)) {
                 flashColor(number: number)
                 index += 1
+                if index == pattern.count {
+                    index = 0
+                    playerTurn = false
+                    messageLabel.text = ""
+                    addToPattern()
+                    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
+                        self .displayPattern()
+                        
+                    }
+                }
+            }
+            else {
+                messageLabel.text = "Game Over"
+                gameOver = true
+                playSound(fileName: "lose")
+                restart()
             }
         }
     }
